@@ -55,12 +55,10 @@ namespace Practice {
         }
 
         public void GoMenu() {
-            if(GameManager.instance.triedQuestion != 0) {
-                GameManager.instance.triedQuestion += status.currentAnswerCount - 1;
-                GameManager.instance.correctAnswer += Mathf.FloorToInt((status.correctAnswerCount * (status.currentAnswerCount - 1)) / (float) GameManager.instance.providedQuestionCount);
-                GameManager.instance.performance = (float) GameManager.instance.correctAnswer / GameManager.instance.triedQuestion * 100;
-                GameManager.instance.Save();
-            }
+            GameManager.instance.triedQuestion += status.currentAnswerCount - 1;
+            GameManager.instance.correctAnswer += Mathf.FloorToInt((status.correctAnswerCount * (status.currentAnswerCount - 1)) / (float) GameManager.instance.providedQuestionCount);
+            GameManager.instance.performance = (float) GameManager.instance.correctAnswer / GameManager.instance.triedQuestion * 100;
+            GameManager.instance.Save();
 
             SceneManager.LoadScene(0);
         }
