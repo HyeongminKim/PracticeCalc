@@ -56,7 +56,7 @@ namespace Practice {
 
         public void GoMenu() {
             GameManager.instance.triedQuestion += status.currentAnswerCount - 1;
-            GameManager.instance.correctAnswer += Mathf.FloorToInt((status.correctAnswerCount * (status.currentAnswerCount - 1)) / (float) GameManager.instance.providedQuestionCount);
+            GameManager.instance.correctAnswer += (status.currentAnswerCount - 1) - (GameManager.instance.providedQuestionCount - status.correctAnswerCount);
             GameManager.instance.performance = (float) GameManager.instance.correctAnswer / GameManager.instance.triedQuestion * 100;
             GameManager.instance.Save();
 
